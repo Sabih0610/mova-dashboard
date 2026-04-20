@@ -1,0 +1,21 @@
+{
+  "name": "MOVA Corporate",
+  "dataColors": ["#0D2B52", "#2563EB", "#10B981", "#F59E0B", "#EF4444", "#7C3AED"],
+  "background": "#F1F5F9",
+  "foreground": "#0F172A",
+  "tableAccent": "#0D2B52",
+  "visualStyles": {
+    "*": {
+      "*": {
+        "fontFamily": [{ "value": "Segoe UI" }],
+        "fontSize": [{ "value": 11 }]
+      }
+    },
+    "card": {
+      "*": {
+        "calloutValue": [{ "fontSize": 28, "fontFamily": "Segoe UI", "bold": true }],
+        "cardTitle": [{ "fontSize": 10, "fontFamily": "Segoe UI" }]
+      }
+    }
+  }
+}

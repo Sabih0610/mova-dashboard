@@ -15,12 +15,11 @@ export const mockData = {
     { store_id: 'store_e', store_name: 'Schaumburg',        conversion_rate: 24.3, rev_per_party: 34, party_count: 143, total_revenue: 4862  },
   ],
 
+  // Four zones: Entrance, Clothing, Electronics, Checkout
   fn_zone_kpi: [
     { zone_id: 'z1', zone_name: 'Entrance',    zone_type: 'transit',  promo_zone_flag: false, visitors: 481, avg_dwell_seconds: 72,  conversion_rate: 12, revenue: 1800,  lost_opp: 423 },
-    { zone_id: 'z2', zone_name: 'Apparel',     zone_type: 'product',  promo_zone_flag: false, visitors: 287, avg_dwell_seconds: 408, conversion_rate: 42, revenue: 9400,  lost_opp: 166 },
     { zone_id: 'z3', zone_name: 'Electronics', zone_type: 'product',  promo_zone_flag: false, visitors: 198, avg_dwell_seconds: 486, conversion_rate: 38, revenue: 11200, lost_opp: 123 },
-    { zone_id: 'z4', zone_name: 'Beauty',      zone_type: 'product',  promo_zone_flag: true,  visitors: 156, avg_dwell_seconds: 312, conversion_rate: 28, revenue: 4200,  lost_opp: 112 },
-    { zone_id: 'z5', zone_name: 'Grocery',     zone_type: 'product',  promo_zone_flag: false, visitors: 203, avg_dwell_seconds: 246, conversion_rate: 55, revenue: 8900,  lost_opp: 91  },
+    { zone_id: 'z4', zone_name: 'Clothing',    zone_type: 'product',  promo_zone_flag: true,  visitors: 156, avg_dwell_seconds: 312, conversion_rate: 28, revenue: 4200,  lost_opp: 112 },
     { zone_id: 'z6', zone_name: 'Checkout',    zone_type: 'checkout', promo_zone_flag: false, visitors: 312, avg_dwell_seconds: 252, conversion_rate: 91, revenue: 18200, lost_opp: 28  },
   ],
 
@@ -32,10 +31,8 @@ export const mockData = {
   ],
 
   fn_promo_roi: [
-    { zone_id: 'z4', zone_name: 'Beauty',      promo_flag: true,  visitors: 156, revenue: 4200,  avg_dwell_seconds: 312 },
-    { zone_id: 'z2', zone_name: 'Apparel',     promo_flag: false, visitors: 287, revenue: 9400,  avg_dwell_seconds: 408 },
+    { zone_id: 'z4', zone_name: 'Clothing',    promo_flag: true,  visitors: 156, revenue: 4200,  avg_dwell_seconds: 312 },
     { zone_id: 'z3', zone_name: 'Electronics', promo_flag: false, visitors: 198, revenue: 11200, avg_dwell_seconds: 486 },
-    { zone_id: 'z5', zone_name: 'Grocery',     promo_flag: false, visitors: 203, revenue: 8900,  avg_dwell_seconds: 246 },
   ],
 
   fn_avg_dwell_by_hour: [
@@ -86,33 +83,27 @@ export const mockData = {
     promo_zone_revenue:    { value: 12440, delta: -1.2, up: false, unit: '$' },
   },
 
+  // Layout: Clothing | Checkout | Electronics (top row), Entrance (bottom center)
   fn_zone_heatmap: [
-    { zone_id:'z1', zone_name:'Entrance',    map_x:155, map_y:248, map_width:130, map_height:62,  visit_count:481, avg_dwell_seconds:72,  promo_zone_flag:false, live_count:8  },
-    { zone_id:'z2', zone_name:'Apparel',     map_x:20,  map_y:125, map_width:115, map_height:80,  visit_count:287, avg_dwell_seconds:408, promo_zone_flag:false, live_count:4  },
-    { zone_id:'z3', zone_name:'Electronics', map_x:305, map_y:125, map_width:115, map_height:80,  visit_count:198, avg_dwell_seconds:486, promo_zone_flag:false, live_count:3  },
-    { zone_id:'z4', zone_name:'Beauty',      map_x:20,  map_y:20,  map_width:115, map_height:75,  visit_count:156, avg_dwell_seconds:312, promo_zone_flag:true,  live_count:2  },
-    { zone_id:'z5', zone_name:'Grocery',     map_x:305, map_y:20,  map_width:115, map_height:75,  visit_count:203, avg_dwell_seconds:246, promo_zone_flag:false, live_count:5  },
-    { zone_id:'z6', zone_name:'Checkout',    map_x:152, map_y:20,  map_width:125, map_height:75,  visit_count:312, avg_dwell_seconds:252, promo_zone_flag:false, live_count:6  },
+    { zone_id:'z4', zone_name:'Clothing',    map_x:20,  map_y:20,  map_width:120, map_height:80, visit_count:156, avg_dwell_seconds:312, promo_zone_flag:true,  live_count:2 },
+    { zone_id:'z6', zone_name:'Checkout',    map_x:160, map_y:20,  map_width:120, map_height:80, visit_count:312, avg_dwell_seconds:252, promo_zone_flag:false, live_count:6 },
+    { zone_id:'z3', zone_name:'Electronics', map_x:300, map_y:20,  map_width:120, map_height:80, visit_count:198, avg_dwell_seconds:486, promo_zone_flag:false, live_count:3 },
+    { zone_id:'z1', zone_name:'Entrance',    map_x:155, map_y:190, map_width:130, map_height:70, visit_count:481, avg_dwell_seconds:72,  promo_zone_flag:false, live_count:8 },
   ],
 
   fn_zone_flows: [
-    { from_zone:'z1', to_zone:'z2', customer_count:180, from_x:165, from_y:248, to_x:77,  to_y:205 },
-    { from_zone:'z1', to_zone:'z3', customer_count:120, from_x:275, from_y:248, to_x:362, to_y:205 },
-    { from_zone:'z2', to_zone:'z4', customer_count:90,  from_x:77,  from_y:125, to_x:77,  to_y:95  },
-    { from_zone:'z2', to_zone:'z6', customer_count:110, from_x:77,  from_y:125, to_x:165, to_y:95  },
-    { from_zone:'z3', to_zone:'z6', customer_count:85,  from_x:362, from_y:125, to_x:277, to_y:95  },
-    { from_zone:'z4', to_zone:'z6', customer_count:70,  from_x:135, from_y:57,  to_x:152, to_y:57  },
-    { from_zone:'z5', to_zone:'z6', customer_count:130, from_x:305, from_y:57,  to_x:277, to_y:57  },
+    { from_zone:'z1', to_zone:'z4', customer_count:168, from_x:195, from_y:190, to_x:80,  to_y:100 },
+    { from_zone:'z1', to_zone:'z6', customer_count:142, from_x:220, from_y:190, to_x:220, to_y:100 },
+    { from_zone:'z1', to_zone:'z3', customer_count:110, from_x:245, from_y:190, to_x:360, to_y:100 },
+    { from_zone:'z4', to_zone:'z6', customer_count:95,  from_x:140, from_y:60,  to_x:160, to_y:60  },
+    { from_zone:'z3', to_zone:'z6', customer_count:88,  from_x:300, from_y:60,  to_x:280, to_y:60  },
   ],
 
   fn_top_paths: [
-    { path:'Entrance → Apparel → Checkout',                count:142, pct:29.5 },
-    { path:'Entrance → Grocery → Checkout',                count:98,  pct:20.4 },
-    { path:'Entrance → Electronics → Checkout',            count:76,  pct:15.8 },
-    { path:'Entrance → Apparel → Beauty → Checkout',       count:58,  pct:12.1 },
-    { path:'Entrance → Electronics → Apparel → Checkout',  count:44,  pct:9.2  },
-    { path:'Entrance → Grocery → Electronics → Checkout',  count:31,  pct:6.5  },
-    { path:'Entrance → Checkout',                          count:18,  pct:3.7  },
-    { path:'Entrance → Beauty → Checkout',                 count:14,  pct:2.9  },
+    { path:'Entrance → Electronics → Checkout',            count:168, pct:39.2 },
+    { path:'Entrance → Clothing → Checkout',               count:132, pct:30.8 },
+    { path:'Entrance → Checkout',                          count:62,  pct:14.5 },
+    { path:'Entrance → Clothing → Electronics → Checkout', count:38,  pct:8.9  },
+    { path:'Entrance → Electronics → Clothing → Checkout', count:28,  pct:6.5  },
   ],
 }

@@ -8,6 +8,32 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <script>
+      // GitHub Pages SPA redirect handler
+      (function() {
+        var redirect = sessionStorage.redirect;
+        delete sessionStorage.redirect;
+        if (redirect && redirect !== location.href) {
+          history.replaceState(null, null, redirect);
+        }
+      })();
+      // Also handle the ?p= query param from 404.html
+      (function() {
+        var l = window.location;
+        if (l.search[1] === 'p') {
+          var decoded = l.search.slice(1).split('&').map(function(s) {
+            return s.replace(/~and~/g, '&');
+          });
+          var path = decoded[0].slice(2);
+          var query = decoded.slice(1).join('&');
+          history.replaceState(
+            null, null,
+            l.pathname.slice(0, -1) + (path ? '/' + path : '') +
+            (query ? '?' + query : '') + l.hash
+          );
+        }
+      })();
+    </script>
   </head>
   <body>
     <div id="root"></div>

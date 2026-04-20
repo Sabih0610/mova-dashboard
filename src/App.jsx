@@ -1,5 +1,5 @@
 import { createContext, useState } from 'react'
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { HashRouter, Routes, Route } from 'react-router-dom'
 import TopNav from './components/layout/TopNav'
 import StoreOverview from './pages/StoreOverview'
 import BehaviorAnalytics from './pages/BehaviorAnalytics'
@@ -13,7 +13,7 @@ export default function App() {
 
   return (
     <DashboardContext.Provider value={{ selectedStore, setSelectedStore, dateFilter, setDateFilter }}>
-      <BrowserRouter>
+      <HashRouter>
         <TopNav />
         <main style={{ paddingTop: 68 }}>
           <Routes>
@@ -22,7 +22,7 @@ export default function App() {
             <Route path="/flow" element={<FlowMap />} />
           </Routes>
         </main>
-      </BrowserRouter>
+      </HashRouter>
     </DashboardContext.Provider>
   )
 }
